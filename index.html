@@ -4,16 +4,44 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="src/css/index.css">
+        <script src="https://kit.fontawesome.com/f5a9a78168.js"
+            crossorigin="anonymous"></script>
         <title>Weather App</title>
     </head>
     <body>
+        <div class="search-box">
+            <button class="btn-search" id="btn"><i class="fas fa-search"></i></button>
+            <input type="text" class="input-search" placeholder="Search City">
+        </div>
         <div class="container">
-            <div class="header">
-                <h1 id="city"></h1>
+            <div class="weather-info">
+                <h1 id="weather"></h1>
+                <p id="city"></p>
                 <h3 id="temp"></h3>
                 <p id="feelsLike"></p>
             </div>
+            <div class="weather-details">
+                <div class="minTemp">
+                    <div id="icon">
+                        <i id="icon-1"></i>
+                    </div>
+                    <div id="details">
+                        <h4 id="minDesc"></h4>
+                        <p id="min"></p>
+                    </div>
+                </div>
+                <div class="maxTemp">
+                    <div id="icon">
+                        <i id="icon-2"></i>
+                    </div>
+                    <div id="details">
+                        <h4 id="maxDesc"></h4>
+                        <p id="max"></p>
+                    </div>
+                </div>
+            </div>
         </div>
-        <script src="dist/main.js"></script>
+        <script type="module" src="src/js/index.js"></script>
     </body>
 </html>

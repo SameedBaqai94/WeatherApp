@@ -1,5 +1,5 @@
 'use strict';
-import UI from './ui';
+import UI from './ui.js';
 
 const WeatherApp = () => {
     const API_KEY = '1150b4611575b91fbe90116a52b03265';
@@ -34,17 +34,40 @@ const WeatherApp = () => {
 
 const weather = WeatherApp();
 let data = null;
+//windows onload
 weather.runApp(
     weather.getCityLatLong('Toronto')
         .then((res) => data = res),
-    2000)
+    1000)
     .then(() => {
         return weather.runApp(
             weather.getTemp(data[0].lat, data[0].lon)
                 .then((res) => data = res),
-            2000
+            1000
         )
     }).then(() => {
-        const ui = new UI(data.main, 'Toronto');
+        console.log(data)
+        const ui = new UI(data, 'Toronto');
         ui.createUI();
     })
+//When Seaching for city manually
+const btn = document.getElementById('btn');
+const input = document.querySelector('.input-search')
+btn.addEventListener('click', () => {
+    weather.runApp(
+        weather.getCityLatLong(input.value)
+            .then((res) => data = res),
+        1000)
+        .then(() => {
+            return weather.runApp(
+                weather.getTemp(data[0].lat, data[0].lon)
+                    .then((res) => data = res),
+                1000
+            )
+        }).then(() => {
+            console.log(data)
+            const ui = new UI(data, input.value);
+            ui.createUI();
+        })
+        .finally(() => input.value = "")
+})
