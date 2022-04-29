@@ -3,7 +3,7 @@ import UI from './ui.js';
 
 const WeatherApp = () => {
     const API_KEY = '1150b4611575b91fbe90116a52b03265';
-    const API = 'http://api.openweathermap.org/';
+    const API = 'https://api.openweathermap.org/';
 
     const getCityLatLong = (city) => {
         return fetch(`${API}/geo/1.0/direct?q=${city}&limit=1&appid=${API_KEY}`, {
