@@ -54,40 +54,24 @@ weather.runApp(
 const btn = document.getElementById('btn');
 const input = document.querySelector('.input-search')
 btn.addEventListener('click', (e) => {
-    weather.runApp(
-        weather.getCityLatLong(input.value)
-            .then((res) => data = res),
-        1000)
-        .then(() => {
-            return weather.runApp(
-                weather.getTemp(data[0].lat, data[0].lon)
-                    .then((res) => data = res),
-                1000
-            )
-        }).then(() => {
-            console.log(data)
-            const ui = new UI(data, input.value);
-            ui.createUI();
-        })
-        .finally(() => input.value = "")
-})
-
-btn.addEventListener('touchstart', (e) => {
-    weather.runApp(
-        weather.getCityLatLong(input.value)
-            .then((res) => data = res),
-        1000)
-        .then(() => {
-            return weather.runApp(
-                weather.getTemp(data[0].lat, data[0].lon)
-                    .then((res) => data = res),
-                1000
-            )
-        }).then(() => {
-            console.log(data)
-            const ui = new UI(data, input.value);
-            ui.createUI();
-        })
-        .finally(() => input.value = "")
+    if (input.value != "") {
+        let data = null;
+        weather.runApp(
+            weather.getCityLatLong(input.value)
+                .then((res) => data = res),
+            1000)
+            .then(() => {
+                return weather.runApp(
+                    weather.getTemp(data[0].lat, data[0].lon)
+                        .then((res) => data = res),
+                    1000
+                )
+            }).then(() => {
+                console.log(data)
+                const ui = new UI(data, input.value);
+                ui.createUI();
+            })
+            .finally(() => input.value = "")
+    }
 })
 
