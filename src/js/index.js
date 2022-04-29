@@ -1,5 +1,5 @@
 'use strict';
-import UI from './ui';
+import UI from './ui.js';
 
 const WeatherApp = () => {
     const API_KEY = '1150b4611575b91fbe90116a52b03265';
