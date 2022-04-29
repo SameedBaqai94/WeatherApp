@@ -1,22 +1,18 @@
 'use strict';
-import UI from './ui.js';
+import UI from './ui';
 
 const WeatherApp = () => {
     const API_KEY = '1150b4611575b91fbe90116a52b03265';
     const API = 'http://api.openweathermap.org/';
 
     const getCityLatLong = (city) => {
-        return fetch(`${API}/geo/1.0/direct?q=${city}&limit=1&appid=${API_KEY}`, {
-            mode: 'cors',
-        })
+        return fetch(`${API}/geo/1.0/direct?q=${city}&limit=1&appid=${API_KEY}`)
             .then((response) => response.json())
             .then((data) => data)
     }
 
     const getTemp = (lat, long) => {
-        return fetch(`${API}data/2.5/weather?lat=${lat}&lon=${long}&appid=${API_KEY}&units=metric`, {
-            mode: 'cors'
-        })
+        return fetch(`${API}data/2.5/weather?lat=${lat}&lon=${long}&appid=${API_KEY}&units=metric`)
             .then(res => res.json())
             .then(data => data)
     }
