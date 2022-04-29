@@ -6,13 +6,17 @@ const WeatherApp = () => {
     const API = 'http://api.openweathermap.org/';
 
     const getCityLatLong = (city) => {
-        return fetch(`${API}/geo/1.0/direct?q=${city}&limit=1&appid=${API_KEY}`)
+        return fetch(`${API}/geo/1.0/direct?q=${city}&limit=1&appid=${API_KEY}`, {
+            mode: 'cors',
+        })
             .then((response) => response.json())
             .then((data) => data)
     }
 
     const getTemp = (lat, long) => {
-        return fetch(`${API}data/2.5/weather?lat=${lat}&lon=${long}&appid=${API_KEY}&units=metric`)
+        return fetch(`${API}data/2.5/weather?lat=${lat}&lon=${long}&appid=${API_KEY}&units=metric`, {
+            mode: 'cors'
+        })
             .then(res => res.json())
             .then(data => data)
     }
