@@ -54,6 +54,7 @@ weather.runApp(
 const btn = document.getElementById('btn');
 const input = document.querySelector('.input-search')
 btn.addEventListener('click', (e) => {
+    alert();
     if (input.value != "") {
         let data = null;
         weather.runApp(
