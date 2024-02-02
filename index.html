@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/src/index.css">
+    <title>Document</title>
+</head>
+<body>
+    <div id="container">
+        <section id="weatherSection">
+            <input id="search" type="text" placeholder="Search City"/>
+            <button id="searchButton" onclick="buttonClick()">Search</button>
+        </section>
+        <section id="weatherText">
+            <section id="cityNameSection">
+                <h1 id="cityName"></h1>
+                <p id="id"></p>
+            </section>
+            <section id="cityWeatherSection">
+                <h2 id="cityWeather"></h2>
+                <p id="description"></p>
+                <h4 id="humidity"></h4>
+            </section>
+        </section>
+    </div>
+    <script src="./src/index.js"></script>
+</body>
+</html>
